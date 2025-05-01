@@ -31,7 +31,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-image :linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 0, 0.5), url('/images/sleep_token.png'));
+  background-image :linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8)), url('/images/sleep_token.png');
   background-size: contain;
   background-repeat: repeat;
 }
