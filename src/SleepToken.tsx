@@ -59,10 +59,13 @@ const SleepToken: React.FC = () => {
         (a) => a.name.toLowerCase() === artistParam.toLowerCase()
       );
       if (found) {
+        console.log('Setting artist to ' + found.name);
         setSelectedArtist(found);
         document.body.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8)), url(${found.style.headerImage})`;
         document.body.style.backgroundSize = 'contain';
         document.body.style.backgroundRepeat = 'repeat';
+      } else {
+        console.log('No artist Found');
       }
     }
   }, []);
