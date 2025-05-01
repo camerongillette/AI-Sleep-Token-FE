@@ -72,7 +72,7 @@ const SleepToken: React.FC = () => {
     setError(null);
     setLyrics('');
     try {
-      const res = await axios.get(backendUrl+'/sleeptoken', {
+      const res = await axios.get(backendUrl+'/lyricgenerator/sleeptoken', {
         params: {
           topicId: selectedTopic.id
         }
