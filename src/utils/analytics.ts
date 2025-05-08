@@ -1,18 +1,25 @@
 // utils/analytics.ts
-import ReactGA from 'react-ga4';
 
-export const initGA = (googleMeasurementId: string) => {
-    if (!googleMeasurementId) {
-        console.error('Google Measurement ID is not defined.');
-        return;
+declare global {
+    interface Window {
+        dataLayer: Record<string, any>[];
     }
-    ReactGA.initialize(googleMeasurementId);
-};
+}
 
-export const logPageView = (url: string) => {
-    ReactGA.send({ hitType: 'pageview', page: url });
+export const logPageView = (path: string): void => {
+    if (typeof window !== 'undefined' && Array.isArray(window.dataLayer)) {
+        window.dataLayer.push({
+        event: 'page_view',
+        page_path: path,
+        });
+    } else {
+        console.warn('dataLayer not found');
+    }
 };
-
-export const logEvent = (category: string, action: string) => {
-    ReactGA.event({ category, action });
-};
+export const logGeneratedTopic = (topicName: string) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'generated_topic',
+      topic_name: topicName,
+    });
+  };

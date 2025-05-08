@@ -102,6 +102,8 @@ label {
 .main-container {  
   min-height: 100vh;
   padding: 1.5rem;
+  background-color: #0b0b0b;
+  color: #cfcfcf;
 }
 
 form button {
