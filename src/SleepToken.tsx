@@ -2,11 +2,16 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import './App.css';
+import { initGA, logEvent } from './utils/analytics';
+import { logPageView } from './utils/analytics';
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 console.log(backendUrl); 
 
-// Artist type
+// ----- GOOGLE ANALYTICS -----
+const googleAnalyticsMeasurementID = import.meta.env.VITE_GOOGLE_MEASUREMENT_ID;
+
+// ---- DATA TYPES
 type Artist = {
   id: number;
   name: string;
@@ -68,6 +73,9 @@ const SleepToken: React.FC = () => {
         console.log('No artist Found');
       }
     }
+    
+    initGA(googleAnalyticsMeasurementID);
+    logPageView(window.location.pathname + window.location.search);
   }, []);
 
   const fetchLyrics = async () => {
@@ -99,6 +107,7 @@ const SleepToken: React.FC = () => {
   }
 
   const handleSubmit = (e: FormEvent) => {
+    logEvent('Generate', 'Topic Selected' + selectedTopic.name);
     e.preventDefault();
     fetchLyrics();
   };
