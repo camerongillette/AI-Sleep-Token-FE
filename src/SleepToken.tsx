@@ -18,7 +18,10 @@ const TOPICS: Topic[] = [
     { id: 1, name: 'LOVE' },
     { id: 2, name: 'DEATH' },
     { id: 3, name: 'BREAK UP' },
-    { id: 4, name: 'LONELINESS' }
+    { id: 4, name: 'LONELINESS' },
+    { id: 5, name : "BETRAYAL"},
+     { id: 6, name :"HEARTBREAK"},
+     {id : 7, name :"MANIPULATION"}
 ]
 
 const SleepToken: React.FC = () => {
