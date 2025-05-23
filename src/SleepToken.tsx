@@ -5,7 +5,7 @@ import './App.css';
 import { logGeneratedTopic, logPageView } from './utils/analytics';
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
-console.log(backendUrl); 
+//console.log(backendUrl); 
 
 // ---- DATA TYPES
 type Topic = {
