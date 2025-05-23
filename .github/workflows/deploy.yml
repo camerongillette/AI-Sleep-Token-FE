@@ -19,7 +19,7 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
-          cd /home/ec2-user/AI-Sleep-Token-FE
+          cd /home/ubuntu/AI-Sleep-Token-FE
           git pull origin main
           npm ci
           npm run build
